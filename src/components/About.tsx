@@ -19,10 +19,10 @@ export default function About() {
         {/* Biography */}
         <div className="text-center md:text-left max-w-3xl">
           <p className="text-lg text-muted-foreground mb-4">
-            Hello! I'm a passionate developer with a strong focus on AI, full-stack web development, and innovative product engineering. With years of experience, I’ve honed my skills in building scalable, user-centric software that pushes the boundaries of what’s possible. I thrive in dynamic environments and love to turn ideas into fully functional solutions.
+            Hello! I&apos;m a passionate developer with a strong focus on AI, full-stack web development, and innovative product engineering. With years of experience, I&apos;ve honed my skills in building scalable, user-centric software that pushes the boundaries of what&apos;s possible. I thrive in dynamic environments and love to turn ideas into fully functional solutions.
           </p>
           <p className="text-lg text-muted-foreground">
-            As a future startup CTO and AI Engineer, I am constantly exploring new technologies and methodologies to create products that make an impact. When I’m not coding, I enjoy learning about new advancements in tech, experimenting with new tools, and collaborating with other like-minded innovators. 
+            As a future startup CTO and AI Engineer, I am constantly exploring new technologies and methodologies to create products that make an impact. When I&apos;m not coding, I enjoy learning about new advancements in tech, experimenting with new tools, and collaborating with other like-minded innovators. 
           </p>
         </div>
       </div>

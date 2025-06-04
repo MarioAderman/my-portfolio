@@ -1,36 +1,38 @@
 "use client"
-import React, { useEffect, useState } from "react"
-import { SunIcon, MoonIcon } from "lucide-react"
 
-const ThemeToggle = () => {
-  const [theme, setTheme] = useState("light")
+import { useEffect, useState } from "react"
+import { Moon, Sun } from "lucide-react"
+
+export default function ThemeToggle() {
+  const [isDark, setIsDark] = useState(false)
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme")
-    if (storedTheme) {
-      setTheme(storedTheme)
-      document.documentElement.classList.add(storedTheme)
-    } else {
-      document.documentElement.classList.add("light")
+    // Run only in browser
+    if (typeof window !== "undefined") {
+      const storedTheme = localStorage.getItem("theme")
+      const isStoredDark = storedTheme === "dark"
+
+      setIsDark(isStoredDark)
+      document.documentElement.classList.toggle("dark", isStoredDark)
     }
   }, [])
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light"
-    setTheme(newTheme)
-    document.documentElement.classList.remove(theme)
-    document.documentElement.classList.add(newTheme)
-    localStorage.setItem("theme", newTheme)
+    const nextIsDark = !isDark
+    setIsDark(nextIsDark)
+    localStorage.setItem("theme", nextIsDark ? "dark" : "light")
+
+    // 🔥 THIS is the key: apply to <html>
+    document.documentElement.classList.toggle("dark", nextIsDark)
   }
 
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full bg-accent text-accent-foreground hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-primary"
+      aria-label="Toggle Theme"
+      className="p-2 rounded-md border hover:bg-gray-100 dark:hover:bg-gray-800"
     >
-      {theme === "light" ? <MoonIcon /> : <SunIcon />}
+      {isDark ? <Sun size={20} /> : <Moon size={20} />}
     </button>
   )
 }
-
-export default ThemeToggle

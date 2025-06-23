@@ -7,7 +7,6 @@ import Header from "@/components/Header"
 export default function HomePage() {
   return (
     <>
-      <Header />
       <main className="scroll-smooth">
         <section id="hero" className="min-h-screen">
           <Hero />

@@ -10,10 +10,16 @@ export default function ThemeToggle() {
     // Run only in browser
     if (typeof window !== "undefined") {
       const storedTheme = localStorage.getItem("theme")
+      // Default to light mode if no theme is stored
       const isStoredDark = storedTheme === "dark"
 
       setIsDark(isStoredDark)
       document.documentElement.classList.toggle("dark", isStoredDark)
+      
+      // Ensure we explicitly set light mode if no theme stored
+      if (!storedTheme) {
+        localStorage.setItem("theme", "light")
+      }
     }
   }, [])
 

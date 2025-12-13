@@ -1,6 +1,12 @@
 import SectionWrapper from "./SectionWrapper"
 import { ExternalLink, Github } from "lucide-react"
 
+type Contribution = {
+  text: string;
+  pr?: string;
+  issue?: string;
+}
+
 const contributions = [
   {
     title: "DeepCritical Project",
@@ -117,7 +123,7 @@ export default function OpenSourceContributions() {
                 Key Contributions
               </h4>
               <ul className="space-y-2">
-                {project.contributions.map((contrib, contribIdx) => (
+                {project.contributions.map((contrib: Contribution, contribIdx) => (
                   <li key={contribIdx} className="flex gap-3">
                     <span className="text-blue-500 dark:text-blue-400 mt-1.5 flex-shrink-0">•</span>
                     <span className="text-gray-600 dark:text-gray-400">

@@ -19,7 +19,7 @@ export default function Hero() {
       </div>
 
       <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-        Hi, I'm Mario Aderman
+        Hi, I&apos;m Mario Aderman
       </h1>
 
       <p className="mt-4 text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-semibold">

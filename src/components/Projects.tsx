@@ -3,20 +3,22 @@ import ProjectCard from "./ProjectCard"
 
 const projects = [
   {
-    title: "Inventory System",
+    title: "Cashy - Financial Assistant",
     description:
-      "A responsive full-stack web app built with React, Node.js, and PostgreSQL. Features user login, dashboards, and real-time updates.",
-    image: "/images/inventory-system.png",
-    link: "https://inventory-system-git-main-mario-adermans-projects.vercel.app/",
-    repo: "https://github.com/MarioAderman/inventory-system",
+      "Agentic-AI assistant for personal finance management with PostgreSQL backend and Excel frontend via ODBC. Built proof-of-concept agentic workflow using Langflow with autonomous CRUD operations through LangChain components and Python code execution.",
+    image: "/images/cashy.png",
+    link: "https://drive.google.com/file/d/16xtPmNV8Ja5Cq1FuM_2F274gx0MuhMCI/view?usp=drive_link",
+    linkText: "Watch Demo",
+    date: "Oct 2025"
   },
   {
-    title: "Portfolio Website",
+    title: "CTGAN-based Portfolio Optimization",
     description:
-      "This portfolio site built with Next.js, Tailwind CSS, and dark/light mode toggle support.",
-    image: "/images/project2.png",
-    link: "https://your-portfolio-url.com",
-  },
+      "Extending research on investment portfolio optimization using Conditional Tabular Generative Adversarial Networks (GANs) for synthetic scenario generation. Implementing and validating methods from Cifuentes et al. (arXiv:2302.02269). Built modular architecture for CTGAN generation, constraint optimization, and performance visualization.",
+    image: "/images/ctgan.png",
+    repo: "https://github.com/MarioAderman/ctgan-portfolio-research",
+    date: "Aug 2025"
+  }
 ]
 
 export default function Projects() {

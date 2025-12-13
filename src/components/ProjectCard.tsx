@@ -9,8 +9,10 @@ interface ProjectCardProps {
   title: string
   description: string
   image: string
-  link: string
+  link?: string
+  linkText?: string
   repo?: string
+  date?: string
 }
 
 export default function ProjectCard({
@@ -18,7 +20,9 @@ export default function ProjectCard({
   description,
   image,
   link,
+  linkText = "Live Demo",
   repo,
+  date,
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -35,16 +39,25 @@ export default function ProjectCard({
         height={350}
         className="rounded mb-4 w-full h-auto"
       />
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
+      <div className="flex justify-between items-start mb-2">
+        <h3 className="text-xl font-bold">{title}</h3>
+        {date && (
+          <span className="text-xs text-gray-500 dark:text-gray-400 font-mono">
+            {date}
+          </span>
+        )}
+      </div>
+      <p className="text-gray-600 dark:text-gray-300 mb-4 text-left">{description}</p>
       <div className="flex gap-4">
-        <Link
-          href={link}
-          target="_blank"
-          className="text-blue-500 hover:underline"
-        >
-          Live Demo
-        </Link>
+        {link && (
+          <Link
+            href={link}
+            target="_blank"
+            className="text-blue-500 hover:underline"
+          >
+            {linkText}
+          </Link>
+        )}
         {repo && (
           <Link
             href={repo}

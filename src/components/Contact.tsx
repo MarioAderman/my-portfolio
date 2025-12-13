@@ -1,6 +1,6 @@
 export default function Contact() {
     return (
-      <div className="px-6 py-20 text-center">
+      <div className="px-6 py-15 text-center">
         <h2 className="text-3xl font-semibold mb-6">Contact</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           I&apos;d love to connect. Feel free to reach out!

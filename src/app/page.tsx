@@ -1,6 +1,8 @@
 import Hero from "@/components/Hero"
 import About from "@/components/About"
+import OpenSourceContributions from "@/components/OpenSourceContributions"
 import Projects from "@/components/Projects"
+import ResearchInterests from "@/components/ResearchInterests"
 import Contact from "@/components/Contact"
 
 export default function HomePage() {
@@ -13,10 +15,16 @@ export default function HomePage() {
         <section id="about" className="min-h-screen">
           <About />
         </section>
+        <section id="contributions" className="min-h-screen">
+          <OpenSourceContributions />
+        </section>
         <section id="projects" className="min-h-screen">
           <Projects />
         </section>
-        <section id="contact" className="min-h-screen">
+        <section id="research" className="min-h-screen">
+          <ResearchInterests />
+        </section>
+        <section id="contact">
           <Contact />
         </section>
       </main>

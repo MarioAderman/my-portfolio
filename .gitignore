@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Local CLAUDE development
+.claude/
+dev/
 CLAUDE.md
  
 # Application files
@@ -47,3 +50,6 @@ CV.md
 CV-SESSION-NOTES.md
 cover-letter.md
 role.md
+
+# PDF files
+*.pdf

@@ -7,7 +7,7 @@ export default function Contact() {
         </p>
         <a
           href="mailto:mario.aderman@gmail.com"
-          className="text-blue-600 dark:text-blue-400 underline"
+          className="text-blue-700 dark:text-blue-400 underline"
         >
           mario.aderman@gmail.com
         </a>

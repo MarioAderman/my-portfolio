@@ -115,7 +115,7 @@ export default function Hero() {
         className="mt-12 animate-bounce"
         aria-label="Scroll to about section"
       >
-        <ArrowDown className="w-6 h-6 text-gray-400" />
+        <ArrowDown className="w-6 h-6 text-zinc-400 dark:text-zinc-500" />
       </button>
     </section>
   );

@@ -53,3 +53,8 @@ role.md
 
 # PDF files
 *.pdf
+
+# Images
+*.png
+*.jpg
+*.jpeg

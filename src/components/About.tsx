@@ -19,28 +19,28 @@ export default function About() {
 
           {/* Text Content */}
           <div className="flex-1">
-            <div className="space-y-6 text-lg text-gray-600 dark:text-gray-400">
+            <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400">
               <p>
-                I&apos;m an <strong className="text-gray-900 dark:text-gray-100">autodidact AI Engineer</strong> based in Mexico,
+                I&apos;m an <strong>autodidact AI Engineer</strong> based in Mexico,
                 passionate about making AI accessible and empowering human reasoning through open-source technology.
               </p>
 
               <p>
-                My work centers on <strong className="text-gray-900 dark:text-gray-100">building agentic systems</strong> and contributing to
+                My work centers on <strong>building agentic systems</strong> and contributing to
                 open-source ML tools that solve real-world problems. I believe the future of AI will be driven by collective effort,
                 and I&apos;m committed to being part of that movement through technical contribution and collaboration.
               </p>
 
               <div className="pt-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Education</h3>
+                <h3 className="text-xl font-semibold mb-4">Education</h3>
                 <div className="border-l-2 border-zinc-300 dark:border-zinc-700 pl-4">
-                  <p className="font-medium text-gray-900 dark:text-gray-100">
+                  <p className="font-medium">
                     Bachelor of Science in Mechatronics Engineering
                   </p>
-                  <p className="text-base text-gray-600 dark:text-gray-400">
+                  <p className="text-base text-zinc-600 dark:text-zinc-400">
                     Instituto Tecnológico y de Estudios Superiores de Monterrey (ITESM)
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-500">
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
                     Querétaro, Mexico • Graduated December 2022 • GPA: 94/100
                   </p>
                 </div>
@@ -51,7 +51,7 @@ export default function About() {
 
         {/* Technical Skills - Full Width Below */}
         <div className="pt-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Technical Skills</h3>
+          <h3 className="text-xl font-semibold mb-4">Technical Skills</h3>
           <div className="flex flex-wrap gap-2">
             {[
               "Python", "PyTorch", "Transformers", "LLMs",

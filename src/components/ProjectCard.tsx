@@ -30,7 +30,7 @@ export default function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="p-6 border rounded-lg dark:border-gray-700 shadow hover:shadow-lg transition-shadow"
+      className="p-6 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow hover:shadow-lg transition-shadow"
     >
       <Image
         src={image}
@@ -42,18 +42,18 @@ export default function ProjectCard({
       <div className="flex justify-between items-start mb-2">
         <h3 className="text-xl font-bold">{title}</h3>
         {date && (
-          <span className="text-xs text-gray-500 dark:text-gray-400 font-mono">
+          <span className="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
             {date}
           </span>
         )}
       </div>
-      <p className="text-gray-600 dark:text-gray-300 mb-4 text-left">{description}</p>
+      <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-left">{description}</p>
       <div className="flex gap-4">
         {link && (
           <Link
             href={link}
             target="_blank"
-            className="text-blue-500 hover:underline"
+            className="text-blue-700 dark:text-blue-400 hover:underline"
           >
             {linkText}
           </Link>
@@ -62,7 +62,7 @@ export default function ProjectCard({
           <Link
             href={repo}
             target="_blank"
-            className="text-blue-500 hover:underline"
+            className="text-blue-700 dark:text-blue-400 hover:underline"
           >
             GitHub
           </Link>

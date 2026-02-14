@@ -66,7 +66,7 @@ export default function OpenSourceContributions() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                <h3 className="text-2xl font-bold">
                   {project.title}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -87,7 +87,7 @@ export default function OpenSourceContributions() {
             </p>
 
             {project.features && (
-              <p className="text-sm text-gray-500 dark:text-gray-500 mb-4">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">
                 <strong>Specs:</strong> {project.features}
               </p>
             )}
@@ -98,7 +98,7 @@ export default function OpenSourceContributions() {
                 href={project.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-lg transition-colors"
               >
                 <Github className="w-4 h-4" />
                 View Repository
@@ -119,7 +119,7 @@ export default function OpenSourceContributions() {
 
             {/* Contributions */}
             <div className="space-y-3">
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wide">
+              <h4 className="text-sm font-semibold uppercase tracking-wide">
                 Key Contributions
               </h4>
               <ul className="space-y-2">

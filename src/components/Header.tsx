@@ -16,7 +16,7 @@ export default function Header() {
 
   const navLinks = [
     { href: '#about', label: 'About' },
-    { href: '#contributions', label: 'Projects' },
+    { href: '#work', label: 'Work' },
     { href: '#contact', label: 'Contact' },
   ]
 
@@ -30,7 +30,7 @@ export default function Header() {
       )}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <div className="grid grid-cols-3 items-center h-16">
+        <div className="flex items-center justify-between h-16 md:grid md:grid-cols-3">
           {/* Left: Name */}
           <a
             href="#hero"
@@ -54,7 +54,7 @@ export default function Header() {
 
           {/* Right: EN + Theme toggle */}
           <div className="flex items-center justify-end gap-4">
-            <span className="hidden md:inline font-sans text-sm text-text-muted">EN</span>
+            <span className="font-sans text-sm text-text-muted">EN</span>
             <ThemeToggle />
             {/* Mobile hamburger */}
             <button

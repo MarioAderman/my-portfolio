@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Inspiration / reference files
+inspo/
+
 # Local CLAUDE development
 .claude/
 dev/

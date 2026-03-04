@@ -26,10 +26,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${plexMono.variable} ${plexSans.variable}`}>
-      <body className="bg-bg-primary text-text-primary noise-overlay transition-colors duration-300">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+      <body className="relative bg-bg-primary text-text-primary noise-overlay transition-colors duration-300">
+        {/* Decorative background circles — visible across all sections */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+          <div className="bg-circle absolute -right-32 top-1/4 w-[500px] h-[500px]" />
+          <div className="bg-circle absolute -left-48 bottom-1/6 w-[350px] h-[350px]" />
+          <div className="bg-circle absolute right-1/4 top-2/3 w-[400px] h-[400px]" />
+        </div>
+        <div className="relative z-10">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   )

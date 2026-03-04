@@ -27,12 +27,6 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col justify-center bg-bg-primary overflow-hidden"
     >
-      {/* Decorative background circles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="bg-circle absolute -right-32 top-1/4 w-[500px] h-[500px]" />
-        <div className="bg-circle absolute -left-48 bottom-1/6 w-[350px] h-[350px]" />
-      </div>
-
       <div className="relative max-w-5xl mx-auto px-5 sm:px-8 w-full pt-24 pb-16">
 
         {/* Row 1: "AI Software" + Projects button */}

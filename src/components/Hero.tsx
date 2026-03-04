@@ -33,7 +33,7 @@ export default function Hero() {
         <div className="bg-circle absolute -left-48 bottom-1/6 w-[350px] h-[350px]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 w-full pt-24 pb-16">
+      <div className="relative max-w-5xl mx-auto px-5 sm:px-8 w-full pt-24 pb-16">
 
         {/* Row 1: "AI Software" + Projects button */}
         <motion.div

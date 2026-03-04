@@ -68,7 +68,7 @@ export default function ArticleCarousel() {
   const nextIdx = (current + 1) % items.length
 
   return (
-    <section className="py-12 md:py-16 overflow-hidden">
+    <section className="pt-4 pb-12 md:pt-6 md:pb-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
 
         {/* Desktop: 3-card carousel with side arrows */}

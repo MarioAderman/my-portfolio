@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero"
+import ArticleCarousel from "@/components/ArticleCarousel"
 import About from "@/components/About"
 import OpenSourceContributions from "@/components/OpenSourceContributions"
 import Projects from "@/components/Projects"
@@ -12,6 +13,7 @@ export default function HomePage() {
         <section id="hero" className="min-h-screen">
           <Hero />
         </section>
+        <ArticleCarousel />
         <section id="about" className="min-h-screen">
           <About />
         </section>

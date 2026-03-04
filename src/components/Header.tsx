@@ -1,83 +1,106 @@
 'use client'
 
-import { useState } from 'react'
-import ThemeToggle from "./ThemeToggle"
+import { useState, useEffect } from 'react'
+import { cn } from '@/lib/utils'
+import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navLinks = [
-    { href: '#hero', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#contributions', label: 'Projects' },
-    { href: '#research', label: 'Interests' },
-    { href: '#contact', label: 'Contact' }
+    { href: '#contact', label: 'Contact' },
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-100/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-md border-b border-gray-200/20 dark:border-gray-700/20">
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-6">
+    <header
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        isScrolled
+          ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-border-subtle'
+          : 'bg-transparent'
+      )}
+    >
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="grid grid-cols-3 items-center h-16">
+          {/* Left: Name */}
+          <a
+            href="#hero"
+            className="font-mono text-sm leading-tight font-medium tracking-tight text-text-primary hover:text-ember transition-colors"
+          >
+            Mario<br />Aderman
+          </a>
+
+          {/* Center: Nav links */}
+          <nav className="hidden md:flex items-center justify-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white hover:underline transition-colors font-medium"
+                className="font-sans text-sm text-text-muted hover:text-text-primary transition-colors duration-200"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 rounded-md text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          {/* Right: EN + Theme toggle */}
+          <div className="flex items-center justify-end gap-4">
+            <span className="hidden md:inline font-sans text-sm text-text-muted">EN</span>
+            <ThemeToggle />
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-text-muted hover:text-text-primary transition-colors md:hidden"
+              aria-label="Toggle menu"
             >
-              {isMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-
-          <ThemeToggle />
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {isMenuOpen ? (
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path d="M4 6h16M4 12h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200/20 dark:border-gray-700/20">
-            <nav className="py-4 space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white hover:bg-gray-200/20 dark:hover:bg-gray-700/20 transition-colors font-medium rounded-md"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-        )}
+        <div
+          className={cn(
+            'md:hidden overflow-hidden transition-all duration-300 ease-in-out',
+            isMenuOpen ? 'max-h-64 opacity-100 pb-4' : 'max-h-0 opacity-0'
+          )}
+        >
+          <nav className="flex flex-col gap-1 border-t border-border-subtle pt-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="font-sans text-sm text-text-muted hover:text-text-primary py-2 px-3 rounded-lg hover:bg-bg-surface transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
     </header>
   )

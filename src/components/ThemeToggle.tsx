@@ -4,21 +4,19 @@ import { useEffect, useState } from "react"
 import { Moon, Sun } from "lucide-react"
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(true)
 
   useEffect(() => {
-    // Run only in browser
     if (typeof window !== "undefined") {
       const storedTheme = localStorage.getItem("theme")
-      // Default to light mode if no theme is stored
-      const isStoredDark = storedTheme === "dark"
+      // Default to dark mode
+      const isStoredDark = storedTheme ? storedTheme === "dark" : true
 
       setIsDark(isStoredDark)
       document.documentElement.classList.toggle("dark", isStoredDark)
-      
-      // Ensure we explicitly set light mode if no theme stored
+
       if (!storedTheme) {
-        localStorage.setItem("theme", "light")
+        localStorage.setItem("theme", "dark")
       }
     }
   }, [])
@@ -27,8 +25,6 @@ export default function ThemeToggle() {
     const nextIsDark = !isDark
     setIsDark(nextIsDark)
     localStorage.setItem("theme", nextIsDark ? "dark" : "light")
-
-    // 🔥 THIS is the key: apply to <html>
     document.documentElement.classList.toggle("dark", nextIsDark)
   }
 
@@ -36,9 +32,9 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label="Toggle Theme"
-      className="p-2 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+      className="p-2 rounded-lg text-text-muted hover:text-text-primary border border-border-default hover:border-text-muted transition-all duration-200"
     >
-      {isDark ? <Sun size={20} /> : <Moon size={20} />}
+      {isDark ? <Sun size={16} /> : <Moon size={16} />}
     </button>
   )
 }

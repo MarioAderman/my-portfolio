@@ -1,8 +1,14 @@
 export default function Footer() {
-    return (
-      <footer className="text-center text-sm text-zinc-600 dark:text-zinc-400 py-6 border-t border-zinc-200 dark:border-zinc-800">
-        © {new Date().getFullYear()} Mario Aderman. All rights reserved.
-      </footer>
-    )
-  }
-  
+  return (
+    <footer className="border-t border-border-subtle py-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span className="font-mono text-sm text-text-muted">
+          mario.aderman
+        </span>
+        <span className="text-sm text-text-muted">
+          © {new Date().getFullYear()} All rights reserved.
+        </span>
+      </div>
+    </footer>
+  )
+}

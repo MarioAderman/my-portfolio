@@ -43,7 +43,7 @@ export default function Hero() {
 
           {/* Projects pill button */}
           <a
-            href="#contributions"
+            href="#projects"
             className="hidden sm:inline-flex items-center gap-3 shrink-0"
           >
             <span className="px-14 py-3.5 rounded-full border border-border-default hover:border-text-muted text-sm font-sans text-text-primary transition-all duration-200">
@@ -85,7 +85,7 @@ export default function Hero() {
           custom={2}
         >
           <a
-            href="#contributions"
+            href="#projects"
             className="inline-flex items-center gap-3"
           >
             <span className="px-14 py-3.5 rounded-full border border-border-default text-sm font-sans text-text-primary">

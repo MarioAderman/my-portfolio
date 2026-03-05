@@ -17,37 +17,30 @@ interface CarouselItem {
 
 const items: CarouselItem[] = [
   {
-    title: 'DeepCritical Project',
+    title: 'Cashy — AI Financial Advisor',
     description:
-      'Agentic framework for scientific deep research. Generates datasets of hypotheses, tests them systematically, and produces reports through configurable workflows.',
-    tags: ['Python', 'LLM', 'Hydra', 'Pydantic'],
-    link: 'https://github.com/DeepCritical',
+      'An AI-powered personal finance agent that answers natural language queries about a customized financial-structured database. Features multi-provider LLM support, specialized tool-calling, human-in-the-loop for write operations, chart generation, and a free tier.',
+    image: '/images/projects/cashy/cashy_edited.png',
+    tags: ['LangGraph', 'LangChain', 'PostgreSQL', 'Gradio'],
+    link: '#project-cashy',
     linkText: 'Read more',
   },
   {
-    title: 'The DETERMINATOR Demo',
+    title: 'The DETERMINATOR',
     description:
-      'Lightweight app based on DeepCritical. Deployed on Hugging Face Spaces for the MCP-1st-Birthday Hackathon by Anthropic and Gradio.',
-    tags: ['Gradio', 'HuggingFace', 'Modal', 'TTS'],
-    link: 'https://huggingface.co/spaces/DataQuests/DETERMINATOR-TEST',
+      'A generalist deep research agent that uses iterative search-and-judge loops to investigate complex questions from any domain. Built for the MCP-1st-Birthday Hackathon.',
+    image: '/images/projects/the_determinator/determinator_card_square.png',
+    tags: ['Pydantic AI', 'Gradio', 'LlamaIndex', 'Modal', 'MCP'],
+    link: '#project-determinator',
     linkText: 'Read more',
   },
   {
-    title: 'Cashy — Financial Assistant',
+    title: 'Fintegra Receptionist Chatbot',
     description:
-      'Agentic-AI assistant for personal finance with PostgreSQL backend and Excel frontend via ODBC. Built with Langflow and LangChain.',
-    image: '/images/cashy.png',
-    tags: ['LangChain', 'PostgreSQL', 'Langflow'],
-    link: 'https://drive.google.com/file/d/16xtPmNV8Ja5Cq1FuM_2F274gx0MuhMCI/view?usp=drive_link',
-    linkText: 'Read more',
-  },
-  {
-    title: 'CTGAN Portfolio Optimization',
-    description:
-      'Research on investment portfolio optimization using Conditional Tabular GANs for synthetic scenario generation.',
-    image: '/images/ctgan.png',
-    tags: ['PyTorch', 'CTGAN', 'Finance'],
-    link: 'https://github.com/MarioAderman/ctgan-portfolio-research',
+      'Multi-platform receptionist chatbot with a three-agent system: intent routing, appointment booking via Cal.com, and RAG-powered FAQ. Supports Instagram, WhatsApp, and Telegram.',
+    image: '/images/projects/chatbot_recepcionist/chatbot_card_edited.png',
+    tags: ['n8n', 'OpenAI', 'Supabase', 'Cal.com'],
+    link: '#project-fintegra-chatbot',
     linkText: 'Read more',
   },
 ]
@@ -255,16 +248,12 @@ function CarouselCard({
           <div className="flex items-center gap-3 mt-auto pt-4">
             <a
               href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
               className="px-6 py-2 rounded-full border border-border-default hover:border-text-muted text-sm text-text-primary font-sans transition-all duration-200"
             >
               {item.linkText || 'Read more'}
             </a>
             <a
               href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-border-default hover:border-text-muted transition-all duration-200"
               aria-label={`View ${item.title}`}
             >

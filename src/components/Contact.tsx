@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Mail } from 'lucide-react'
 import SectionWrapper from './SectionWrapper'
 import ThemeIcon from './ThemeIcon'
+import { useTranslation } from '@/i18n/LanguageContext'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -23,7 +24,7 @@ const contactLinks = [
   },
   {
     href: 'mailto:mario.aderman@gmail.com',
-    label: 'E-mail',
+    labelKey: 'email' as const,
     icon: 'mail' as const,
   },
   {
@@ -39,6 +40,7 @@ const contactLinks = [
 ]
 
 export default function Contact() {
+  const { t } = useTranslation()
   return (
     <section id="contact" className="py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
@@ -63,7 +65,7 @@ export default function Contact() {
           variants={fadeUp}
           custom={1}
         >
-          AI Software Engineer
+          {t.contact.role}
         </motion.p>
 
         {/* Contact link pills */}
@@ -74,7 +76,7 @@ export default function Contact() {
         >
           {contactLinks.map((link) => (
             <a
-              key={link.label}
+              key={link.href}
               href={link.href}
               target={link.href.startsWith('mailto:') ? undefined : '_blank'}
               rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
@@ -90,7 +92,7 @@ export default function Contact() {
               ) : link.icon === 'mail' ? (
                 <Mail className="w-[18px] h-[18px]" />
               ) : null}
-              <span>{link.label}</span>
+              <span>{'labelKey' in link ? t.contact[link.labelKey as keyof typeof t.contact] : link.label}</span>
             </a>
           ))}
         </motion.div>

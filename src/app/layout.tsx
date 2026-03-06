@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import { LanguageProvider } from "@/i18n/LanguageContext"
 
 const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -33,11 +34,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="bg-circle absolute -left-48 bottom-1/6 w-[350px] h-[350px]" />
           <div className="bg-circle absolute right-1/4 top-2/3 w-[400px] h-[400px]" />
         </div>
-        <div className="relative z-10">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <LanguageProvider>
+          <div className="relative z-10">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </LanguageProvider>
       </body>
     </html>
   )

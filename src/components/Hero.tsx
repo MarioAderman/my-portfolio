@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import ThemeIcon from './ThemeIcon'
+import { useTranslation } from '@/i18n/LanguageContext'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -22,6 +23,7 @@ const socialLinks: { href: string; label: string; ariaLabel: string; logo: strin
 ]
 
 export default function Hero() {
+  const { t } = useTranslation()
   return (
     <section
       id="hero"
@@ -37,8 +39,8 @@ export default function Hero() {
           variants={fadeUp}
           custom={0}
         >
-          <h1 className="font-mono text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight">
-            AI Software
+          <h1 className="font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+            {t.hero.titleLine1}
           </h1>
 
           {/* Projects pill button */}
@@ -47,7 +49,7 @@ export default function Hero() {
             className="hidden sm:inline-flex items-center gap-3 shrink-0"
           >
             <span className="px-14 py-3.5 rounded-full border border-border-default hover:border-text-muted text-sm font-sans text-text-primary transition-all duration-200">
-              Projects
+              {t.hero.projectsButton}
             </span>
             <span className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default hover:border-text-muted transition-all duration-200">
               <ArrowRight className="w-5 h-5" />
@@ -65,14 +67,13 @@ export default function Hero() {
         >
           {/* Tagline — left side */}
           <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-md">
-            My goal is to <strong className="text-text-primary font-semibold">write maintainable, clean</strong> and{' '}
-            <em className="text-text-primary font-semibold">understandable code</em>. Always committed to
-            the process.
+            {t.hero.tagline.start}<strong className="text-text-primary font-semibold">{t.hero.tagline.bold}</strong>{t.hero.tagline.mid}{' '}
+            <em className="text-text-primary font-semibold">{t.hero.tagline.italic}</em>{t.hero.tagline.end}
           </p>
 
           {/* "Engineer" — right side, large */}
-          <span className="font-mono text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-right">
-            Engineer
+          <span className="font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-right">
+            {t.hero.titleLine2}
           </span>
         </motion.div>
 
@@ -89,7 +90,7 @@ export default function Hero() {
             className="inline-flex items-center gap-3"
           >
             <span className="px-14 py-3.5 rounded-full border border-border-default text-sm font-sans text-text-primary">
-              Projects
+              {t.hero.projectsButton}
             </span>
             <span className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default">
               <ArrowRight className="w-5 h-5" />

@@ -5,6 +5,7 @@ import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import ThemeIcon from './ThemeIcon'
+import { useTranslation } from '@/i18n/LanguageContext'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -21,22 +22,17 @@ interface ProjectLink {
   type: 'github' | 'demo' | 'video' | 'external'
 }
 
-interface Project {
+interface ProjectConfig {
   id: string
-  title: string
-  description: string
   images?: string[]
   imageStyles?: string[]
   tags: string[]
   links: ProjectLink[]
 }
 
-const projects: Project[] = [
+const projectConfigs: ProjectConfig[] = [
   {
     id: 'cashy',
-    title: 'Cashy — AI Financial Advisor',
-    description:
-      'An AI-powered personal finance agent that answers natural language queries about a customized financial-structured database. Features multi-provider LLM support (OpenAI, Anthropic, Google, HuggingFace), specialized tool-calling, human-in-the-loop for write operations, chart generation, and a free tier.',
     images: [
       '/images/projects/cashy/cashy_edited.png',
       '/images/projects/cashy/demo_cashy.png',
@@ -52,9 +48,6 @@ const projects: Project[] = [
   },
   {
     id: 'determinator',
-    title: 'The DETERMINATOR',
-    description:
-      'A generalist deep research agent that uses iterative search-and-judge loops to investigate complex questions from any domain. Built for the MCP-1st-Birthday Hackathon. Features multi-source search, MCP integration, HuggingFace OAuth, Modal sandboxed code execution and LlamaIndex RAG. I contributed the output text-to-speech task using Kokoro-82M model sandboxed on Modal GPU.',
     images: [
       '/images/projects/the_determinator/determinator_card_square.png',
       '/images/projects/the_determinator/determinator_demo.png',
@@ -69,9 +62,6 @@ const projects: Project[] = [
   },
   {
     id: 'fintegra-chatbot',
-    title: 'Fintegra Receptionist Chatbot',
-    description:
-      'Multi-platform receptionist chatbot for a financial services firm. Routes user intent through a three-agent system: an intent classifier, an appointment booking agent with Cal.com integration, and a RAG-powered FAQ agent. Supports Instagram DM, WhatsApp, and Telegram with voice transcription (Whisper) and image analysis (GPT-4o). Built on n8n with Redis message batching and Supabase pgvector for knowledge retrieval.',
     images: ['/images/projects/chatbot_recepcionist/chatbot_card_edited.png'],
     tags: ['n8n', 'OpenAI', 'Supabase', 'Cal.com', 'Redis'],
     links: [
@@ -83,9 +73,15 @@ const projects: Project[] = [
 ]
 
 export default function Projects() {
+  const { t } = useTranslation()
+
+  const projects = projectConfigs.map((config) => {
+    const item = t.projects.items.find((i) => i.id === config.id)
+    return { ...config, title: item?.title ?? config.id, description: item?.description ?? '' }
+  })
+
   return (
     <>
-      {/* Big "Projects" title — no section wrapper, standalone like Hero title */}
       <section id="projects" className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <motion.h2
@@ -95,7 +91,7 @@ export default function Projects() {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            Projects
+            {t.projects.sectionTitle}
           </motion.h2>
 
           {/* Compact project list — minimal rows linking to detail below */}

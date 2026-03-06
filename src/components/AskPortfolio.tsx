@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUp, Copy, Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useTranslation } from '@/i18n/LanguageContext'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -42,7 +43,7 @@ function CopyButton({ text }: { text: string }) {
     <button
       onClick={handleCopy}
       className="absolute top-2 right-2 p-1.5 rounded-md bg-bg-surface hover:bg-bg-surface-alt border border-border-subtle text-text-muted hover:text-text-primary transition-all duration-200"
-      aria-label="Copy to clipboard"
+      aria-label="Copy"
     >
       {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
     </button>
@@ -50,8 +51,9 @@ function CopyButton({ text }: { text: string }) {
 }
 
 export default function AskPortfolio() {
+  const { t } = useTranslation()
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'agent', text: "Hey! I'm Mario's portfolio assistant. Ask me anything about his skills, projects, or services." },
+    { role: 'agent', text: t.ask.chat.greeting },
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
@@ -93,14 +95,13 @@ export default function AskPortfolio() {
 
       const data = await res.json()
       const agentText =
-        data?.result?.parts?.[0]?.text ||
-        "Sorry, I couldn't process that. Try again or reach out to Mario directly."
+        data?.result?.parts?.[0]?.text || t.ask.chat.errorProcess
 
       setMessages((prev) => [...prev, { role: 'agent', text: agentText }])
     } catch {
       setMessages((prev) => [
         ...prev,
-        { role: 'agent', text: "Couldn't connect to the agent right now. Try again later or reach out to Mario directly." },
+        { role: 'agent', text: t.ask.chat.errorConnect },
       ])
     } finally {
       setLoading(false)
@@ -132,7 +133,7 @@ export default function AskPortfolio() {
             variants={fadeUp}
             custom={0}
           >
-            Ask My Portfolio
+            {t.ask.title}
           </motion.h2>
 
           <motion.p
@@ -140,8 +141,7 @@ export default function AskPortfolio() {
             variants={fadeUp}
             custom={0}
           >
-            This portfolio is AI-native. Chat with it here, or connect your own AI assistant
-            using the MCP server.
+            {t.ask.subtitle}
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
@@ -150,7 +150,7 @@ export default function AskPortfolio() {
 
             {/* MCP connection snippet */}
             <div className="space-y-2">
-              <span className="text-xs font-mono text-text-muted">Claude Code</span>
+              <span className="text-xs font-mono text-text-muted">{t.ask.snippetLabels.claudeCode}</span>
               <div className="relative">
                 <pre className="text-xs font-mono text-text-secondary bg-bg-surface border border-border-default rounded-lg p-4 pr-10 overflow-x-auto">
                   {MCP_COMMAND}
@@ -161,7 +161,7 @@ export default function AskPortfolio() {
 
             {/* MCP JSON snippet */}
             <div className="space-y-2">
-              <span className="text-xs font-mono text-text-muted">Cursor / VS Code / Claude Desktop</span>
+              <span className="text-xs font-mono text-text-muted">{t.ask.snippetLabels.cursorVscode}</span>
               <div className="relative">
                 <pre className="text-xs font-mono text-text-secondary bg-bg-surface border border-border-default rounded-lg p-4 pr-10 overflow-x-auto">
                   {MCP_JSON}
@@ -172,7 +172,7 @@ export default function AskPortfolio() {
 
             {/* A2A mention */}
             <div className="space-y-1">
-              <span className="text-xs font-mono text-text-muted">A2A Agent Card</span>
+              <span className="text-xs font-mono text-text-muted">{t.ask.snippetLabels.a2a}</span>
               <p className="text-xs font-mono text-text-secondary break-all">
                 https://agent.fintegra.solutions/.well-known/agent-card.json
               </p>
@@ -232,7 +232,7 @@ export default function AskPortfolio() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Ask about skills, projects, services..."
+                  placeholder={t.ask.chat.placeholder}
                   disabled={loading}
                   className="flex-1 bg-transparent text-sm text-text-primary placeholder:text-text-muted font-sans outline-none disabled:opacity-50"
                 />
@@ -245,7 +245,7 @@ export default function AskPortfolio() {
                       ? 'bg-text-primary text-bg-primary hover:opacity-80'
                       : 'bg-bg-surface text-text-muted border border-border-default'
                   )}
-                  aria-label="Send message"
+                  aria-label={t.aria.sendMessage}
                 >
                   <ArrowUp className="w-4 h-4" />
                 </button>

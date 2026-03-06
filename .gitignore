@@ -43,6 +43,9 @@ next-env.d.ts
 # Inspiration / reference files
 inspo/
 
+# Bug reports (local screenshots)
+bugs/
+
 # Local CLAUDE development
 .claude/
 dev/

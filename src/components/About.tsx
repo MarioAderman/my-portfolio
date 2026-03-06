@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import SectionWrapper from './SectionWrapper'
 import ThemeIcon from './ThemeIcon'
+import { useTranslation } from '@/i18n/LanguageContext'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -35,8 +36,12 @@ const skillCategories = [
 ]
 
 export default function About() {
+  const { t } = useTranslation()
+
+  const categoryNames = [t.about.categories.aiml, t.about.categories.backend, t.about.categories.frontend, t.about.categories.devops]
+
   return (
-    <SectionWrapper id="about" title="About me">
+    <SectionWrapper id="about" title={t.about.sectionTitle}>
       {/* Intro text — right-aligned like Nikita */}
       <motion.p
         className="text-base md:text-lg text-text-secondary leading-relaxed max-w-md md:ml-auto mb-12 md:mb-16"
@@ -46,10 +51,10 @@ export default function About() {
         variants={fadeUp}
         custom={0}
       >
-        Hello! I&apos;m Mario, I&apos;m an{' '}
-        <strong className="text-text-primary font-semibold">AI software engineer</strong>.
-        Into <em className="text-text-primary font-semibold">open-source projects</em> and{' '}
-        <strong className="text-text-primary font-semibold">hackathons</strong>.
+        {t.about.intro.start}
+        <strong className="text-text-primary font-semibold">{t.about.intro.role}</strong>
+        {t.about.intro.mid}<em className="text-text-primary font-semibold">{t.about.intro.opensource}</em>{t.about.intro.and}
+        <strong className="text-text-primary font-semibold">{t.about.intro.hackathons}</strong>{t.about.intro.end}
       </motion.p>
 
       {/* 2-column layout: skill boxes (left) + photo (right) */}
@@ -64,7 +69,7 @@ export default function About() {
           {/* AI / ML — full width */}
           <motion.div variants={fadeUp} custom={0} className="rounded-xl border border-border-default p-5">
             <h3 className="font-mono text-sm font-semibold text-text-primary mb-2">
-              {skillCategories[0].name}
+              {categoryNames[0]}
             </h3>
             <p className="text-sm text-text-muted leading-relaxed">
               {skillCategories[0].skills.join(' / ')}
@@ -75,7 +80,7 @@ export default function About() {
           <motion.div className="flex items-start gap-4" variants={fadeUp} custom={1}>
             <div className="rounded-xl border border-border-default p-5 flex-1 max-w-xs">
               <h3 className="font-mono text-sm font-semibold text-text-primary mb-2">
-                {skillCategories[1].name}
+                {categoryNames[1]}
               </h3>
               <p className="text-sm text-text-muted leading-relaxed">
                 {skillCategories[1].skills.join(' / ')}
@@ -92,7 +97,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="-ml-3 inline-flex items-center justify-center w-10 h-10 rounded-full border border-border-default bg-bg-surface hover:border-text-muted transition-all duration-200 z-10"
-                aria-label="View GitHub profile"
+                aria-label={t.aria.viewGithub}
               >
                 <ArrowUpRight className="w-4 h-4" />
               </a>
@@ -102,7 +107,7 @@ export default function About() {
           {/* Frontend — full width */}
           <motion.div variants={fadeUp} custom={3} className="rounded-xl border border-border-default p-5">
             <h3 className="font-mono text-sm font-semibold text-text-primary mb-2">
-              {skillCategories[2].name}
+              {categoryNames[2]}
             </h3>
             <p className="text-sm text-text-muted leading-relaxed">
               {skillCategories[2].skills.join(' / ')}
@@ -112,14 +117,14 @@ export default function About() {
           {/* Small text + DevOps — same row */}
           <motion.div className="flex items-start gap-4" variants={fadeUp} custom={4}>
             <p className="hidden md:block text-xs text-text-muted pt-2 w-[140px] shrink-0">
-              Some of my{' '}
-              <em className="text-text-secondary font-medium">favorite technologies, topics, or tools</em>{' '}
-              that I worked with
+              {t.about.techLabel.start}
+              <em className="text-text-secondary font-medium">{t.about.techLabel.bold}</em>{' '}
+              {t.about.techLabel.end}
             </p>
 
             <div className="rounded-xl border border-border-default p-5 flex-1">
               <h3 className="font-mono text-sm font-semibold text-text-primary mb-2">
-                {skillCategories[3].name}
+                {categoryNames[3]}
               </h3>
               <p className="text-sm text-text-muted leading-relaxed">
                 {skillCategories[3].skills.join(' / ')}

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { useTranslation } from '@/i18n/LanguageContext'
 
 interface CarouselItem {
   title: string
@@ -15,37 +16,41 @@ interface CarouselItem {
   linkText?: string
 }
 
-const items: CarouselItem[] = [
+const carouselConfigs = [
   {
-    title: 'Cashy — AI Financial Advisor',
-    description:
-      'An AI-powered personal finance agent that answers natural language queries about a customized financial-structured database. Features multi-provider LLM support, specialized tool-calling, human-in-the-loop for write operations, chart generation, and a free tier.',
+    id: 'cashy',
     image: '/images/projects/cashy/cashy_edited.png',
     tags: ['LangGraph', 'LangChain', 'PostgreSQL', 'Gradio'],
     link: '#project-cashy',
-    linkText: 'Read more',
   },
   {
-    title: 'The DETERMINATOR',
-    description:
-      'A generalist deep research agent that uses iterative search-and-judge loops to investigate complex questions from any domain. Built for the MCP-1st-Birthday Hackathon.',
+    id: 'determinator',
     image: '/images/projects/the_determinator/determinator_card_square.png',
     tags: ['Pydantic AI', 'Gradio', 'LlamaIndex', 'Modal', 'MCP'],
     link: '#project-determinator',
-    linkText: 'Read more',
   },
   {
-    title: 'Fintegra Receptionist Chatbot',
-    description:
-      'Multi-platform receptionist chatbot with a three-agent system: intent routing, appointment booking via Cal.com, and RAG-powered FAQ. Supports Instagram, WhatsApp, and Telegram.',
+    id: 'fintegra-chatbot',
     image: '/images/projects/chatbot_recepcionist/chatbot_card_edited.png',
     tags: ['n8n', 'OpenAI', 'Supabase', 'Cal.com'],
     link: '#project-fintegra-chatbot',
-    linkText: 'Read more',
   },
 ]
 
 export default function ArticleCarousel() {
+  const { t } = useTranslation()
+
+  const items: CarouselItem[] = carouselConfigs.map((config) => {
+    const item = t.projects.items.find((i) => i.id === config.id)
+    return {
+      title: item?.title ?? config.id,
+      description: item?.carouselDescription ?? '',
+      image: config.image,
+      tags: config.tags,
+      link: config.link,
+      linkText: t.projects.readMore,
+    }
+  })
   const [current, setCurrent] = useState(0)
 
   const prev = useCallback(() => {

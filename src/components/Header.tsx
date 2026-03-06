@@ -3,10 +3,12 @@
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import ThemeToggle from './ThemeToggle'
+import { useTranslation } from '@/i18n/LanguageContext'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const { lang, t, toggleLanguage } = useTranslation()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
@@ -15,17 +17,17 @@ export default function Header() {
   }, [])
 
   const navLinks = [
-    { href: '#about', label: 'About' },
-    { href: '#ask', label: 'Ask' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#about', label: t.nav.about },
+    { href: '#ask', label: t.nav.ask },
+    { href: '#projects', label: t.nav.projects },
+    { href: '#contact', label: t.nav.contact },
   ]
 
   return (
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
+        isScrolled || isMenuOpen
           ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-border-subtle'
           : 'bg-transparent'
       )}
@@ -46,7 +48,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="font-sans text-sm text-text-muted hover:text-text-primary transition-colors duration-200"
+                className="font-sans text-sm text-text-muted hover:text-text-primary transition-colors duration-200 whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -55,13 +57,18 @@ export default function Header() {
 
           {/* Right: EN + Theme toggle */}
           <div className="flex items-center justify-end gap-4">
-            <span className="font-sans text-sm text-text-muted">EN</span>
+            <button
+              onClick={toggleLanguage}
+              className="font-sans text-sm text-text-muted hover:text-text-primary transition-colors"
+            >
+              {lang === 'en' ? 'ES' : 'EN'}
+            </button>
             <ThemeToggle />
             {/* Mobile hamburger */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 text-text-muted hover:text-text-primary transition-colors md:hidden"
-              aria-label="Toggle menu"
+              aria-label={t.aria.toggleMenu}
             >
               <svg
                 className="h-5 w-5"

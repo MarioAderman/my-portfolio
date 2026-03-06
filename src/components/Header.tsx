@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-[env(safe-area-inset-top)]',
         isScrolled || isMenuOpen
           ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-border-subtle'
           : 'bg-transparent'

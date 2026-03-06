@@ -21,7 +21,13 @@ const plexSans = IBM_Plex_Sans({
 
 export const metadata: Metadata = {
   title: "Mario Aderman — AI Engineer",
-  description: "Startup CTO / AI Engineer / Product Engineer. Building intelligent systems that ship.",
+  description: "AI Software Engineer | Building intelligent systems that ship",
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover' as const,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

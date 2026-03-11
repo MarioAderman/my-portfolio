@@ -1,4 +1,4 @@
-# Mario Aderman — Portfolio
+# mario-aderman/portfolio
 
 <p align="center">
   <img src="public/demo.gif" alt="Portfolio demo" width="880" />

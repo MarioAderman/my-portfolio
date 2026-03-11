@@ -1,5 +1,9 @@
 # Mario Aderman — Portfolio
 
+<p align="center">
+  <img src="public/demo.gif" alt="Portfolio demo" width="880" />
+</p>
+
 Personal portfolio built with Next.js 15, React 19, TypeScript, and Tailwind CSS v4.
 
 **Live**: [mario-aderman.vercel.app](https://mario-aderman.vercel.app) | [/llms.txt](https://mario-aderman.vercel.app/llms.txt)

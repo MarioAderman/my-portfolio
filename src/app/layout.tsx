@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
 import "./globals.css"
+import iconRounded from "./icon-rounded.png"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import { LanguageProvider } from "@/i18n/LanguageContext"
@@ -20,8 +21,13 @@ const plexSans = IBM_Plex_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Mario Aderman — AI Engineer",
+  title: "Mario Aderman",
   description: "AI Software Engineer | Building intelligent systems that ship",
+  icons: {
+    icon: iconRounded.src,
+    shortcut: iconRounded.src,
+    apple: iconRounded.src,
+  },
 }
 
 export const viewport = {

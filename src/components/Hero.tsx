@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import ThemeIcon from './ThemeIcon'
 import { useTranslation } from '@/i18n/LanguageContext'
 
@@ -18,8 +18,8 @@ const socialLinks: { href: string; label: string; ariaLabel: string; logo: strin
   { href: 'https://github.com/MarioAderman', label: 'GitHub', ariaLabel: 'GitHub', logo: '/images/gh_logo.png', invertInDark: true },
   { href: 'https://linkedin.com/in/mario-aderman', label: 'LinkedIn', ariaLabel: 'LinkedIn', logo: '/images/linkedin_logo.png', invertInDark: true },
   { href: 'https://x.com/MarioAderman', label: '', ariaLabel: 'X (Twitter)', logo: '/images/x_logo.png', invertInDark: true, logoSize: 24 },
-  { href: 'https://huggingface.co/SeasonalFall84', label: 'Hugging Face', ariaLabel: 'Hugging Face', logo: '/images/huggingface_logo.png', invertInDark: false },
-  { href: 'https://www.kaggle.com/marioaderman/code', label: 'Kaggle', ariaLabel: 'Kaggle', logo: '/images/kaggle_logo.png', invertInDark: false },
+  { href: 'https://huggingface.co/SeasonalFall84', label: 'Hugging Face', ariaLabel: 'Hugging Face', logo: '/images/huggingface.png', invertInDark: false },
+  { href: 'https://www.kaggle.com/marioaderman/code', label: 'Kaggle', ariaLabel: 'Kaggle', logo: '/images/k.png', invertInDark: false },
 ]
 
 export default function Hero() {
@@ -43,18 +43,18 @@ export default function Hero() {
             {t.hero.titleLine1}
           </h1>
 
-          {/* Projects pill button */}
-          <a
-            href="#projects"
-            className="hidden sm:inline-flex items-center gap-3 shrink-0"
-          >
-            <span className="px-14 py-3.5 rounded-full border border-border-default hover:border-text-muted text-sm font-sans text-text-primary transition-all duration-200">
+          {/* Projects pill + arrow */}
+          <div className="hidden sm:flex items-center shrink-0">
+            <span className="inline-flex items-center justify-center h-12 px-20 rounded-full border border-border-default text-sm font-mono text-text-primary">
               {t.hero.projectsButton}
             </span>
-            <span className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default hover:border-text-muted transition-all duration-200">
-              <ArrowRight className="w-5 h-5" />
-            </span>
-          </a>
+            <a
+              href="#projects"
+              className="-ml-3 inline-flex items-center justify-center w-10 h-10 rounded-full border border-border-default bg-bg-surface hover:bg-text-primary hover:text-bg-primary hover:border-text-primary transition-all duration-200 z-10"
+            >
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
         </motion.div>
 
         {/* Row 2: Tagline (left) + "Engineer" (right) */}
@@ -85,17 +85,17 @@ export default function Hero() {
           variants={fadeUp}
           custom={2}
         >
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-3"
-          >
-            <span className="px-14 py-3.5 rounded-full border border-border-default text-sm font-sans text-text-primary">
+          <div className="inline-flex items-center">
+            <span className="inline-flex items-center justify-center h-12 px-20 rounded-full border border-border-default text-sm font-mono text-text-primary">
               {t.hero.projectsButton}
             </span>
-            <span className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default">
-              <ArrowRight className="w-5 h-5" />
-            </span>
-          </a>
+            <a
+              href="#projects"
+              className="-ml-3 inline-flex items-center justify-center w-10 h-10 rounded-full border border-border-default bg-bg-surface hover:bg-text-primary hover:text-bg-primary hover:border-text-primary transition-all duration-200 z-10"
+            >
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
         </motion.div>
 
         {/* Social pills with logo images */}
@@ -112,7 +112,7 @@ export default function Hero() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="social-pill inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-border-default text-sm text-text-muted font-sans"
+              className="group inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-border-default text-sm font-sans hover:bg-text-primary hover:text-bg-primary hover:border-text-primary transition-all duration-200"
               aria-label={social.ariaLabel}
             >
               <ThemeIcon
@@ -120,6 +120,7 @@ export default function Hero() {
                 alt={social.ariaLabel}
                 size={social.logoSize ?? 18}
                 invertInDark={social.invertInDark}
+                className="group-hover:invert dark:group-hover:invert-0"
               />
               {social.label && <span>{social.label}</span>}
             </a>

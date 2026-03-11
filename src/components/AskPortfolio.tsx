@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowUp, Copy, Check } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, Copy, Check, Clipboard } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useTranslation } from '@/i18n/LanguageContext'
 
@@ -170,12 +170,15 @@ export default function AskPortfolio() {
               </div>
             </div>
 
-            {/* A2A mention */}
-            <div className="space-y-1">
+            {/* A2A Agent Card */}
+            <div className="space-y-2">
               <span className="text-xs font-mono text-text-muted">{t.ask.snippetLabels.a2a}</span>
-              <p className="text-xs font-mono text-text-secondary break-all">
-                https://agent.fintegra.solutions/.well-known/agent-card.json
-              </p>
+              <div className="relative">
+                <pre className="text-xs font-mono text-text-secondary bg-bg-surface border border-border-default rounded-lg p-4 pr-10 overflow-x-auto">
+                  https://agent.fintegra.solutions/.well-known/agent-card.json
+                </pre>
+                <CopyButton text="https://agent.fintegra.solutions/.well-known/agent-card.json" />
+              </div>
             </div>
           </motion.div>
 

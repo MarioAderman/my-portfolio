@@ -133,14 +133,9 @@ body {
   color: var(--text-muted);
 }
 
-/* ── Social pill hover state ── */
+/* ── Social pill base transition ── */
 .social-pill {
   transition: all 0.2s ease;
-}
-
-.social-pill:hover {
-  border-color: var(--text-secondary);
-  color: var(--text-primary);
 }
 
 /* ── Noise texture overlay ── */

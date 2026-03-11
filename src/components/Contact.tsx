@@ -80,7 +80,7 @@ export default function Contact() {
               href={link.href}
               target={link.href.startsWith('mailto:') ? undefined : '_blank'}
               rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-              className="social-pill inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-border-default text-sm text-text-muted font-sans hover:text-text-primary hover:border-text-muted transition-all duration-200"
+              className="group inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-border-default text-sm font-sans hover:bg-text-primary hover:text-bg-primary hover:border-text-primary transition-all duration-200"
             >
               {link.logo ? (
                 <ThemeIcon
@@ -88,6 +88,7 @@ export default function Contact() {
                   alt={link.label}
                   size={18}
                   invertInDark={link.invertInDark}
+                  className="group-hover:invert dark:group-hover:invert-0"
                 />
               ) : link.icon === 'mail' ? (
                 <Mail className="w-[18px] h-[18px]" />

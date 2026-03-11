@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { useTranslation } from '@/i18n/LanguageContext'
@@ -74,7 +74,7 @@ export default function ArticleCarousel() {
           {/* Left arrow */}
           <button
             onClick={prev}
-            className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default hover:border-text-muted text-text-muted hover:text-text-primary transition-all duration-200"
+            className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default hover:bg-text-primary hover:text-bg-primary hover:border-text-primary text-text-muted transition-all duration-200"
             aria-label="Previous"
           >
             <ArrowLeft className="w-5 h-5" />
@@ -113,7 +113,7 @@ export default function ArticleCarousel() {
           {/* Right arrow */}
           <button
             onClick={next}
-            className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default hover:border-text-muted text-text-muted hover:text-text-primary transition-all duration-200"
+            className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default hover:bg-text-primary hover:text-bg-primary hover:border-text-primary text-text-muted transition-all duration-200"
             aria-label="Next"
           >
             <ArrowRight className="w-5 h-5" />
@@ -140,7 +140,7 @@ export default function ArticleCarousel() {
           {/* Prev arrow — mobile only */}
           <button
             onClick={prev}
-            className="md:hidden inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default hover:border-text-muted text-text-muted hover:text-text-primary transition-all duration-200"
+            className="md:hidden inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default hover:bg-text-primary hover:text-bg-primary hover:border-text-primary text-text-muted transition-all duration-200"
             aria-label="Previous"
           >
             <ArrowLeft className="w-5 h-5" />
@@ -166,7 +166,7 @@ export default function ArticleCarousel() {
           {/* Next arrow — mobile only */}
           <button
             onClick={next}
-            className="md:hidden inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default hover:border-text-muted text-text-muted hover:text-text-primary transition-all duration-200"
+            className="md:hidden inline-flex items-center justify-center w-12 h-12 rounded-full border border-border-default hover:bg-text-primary hover:text-bg-primary hover:border-text-primary text-text-muted transition-all duration-200"
             aria-label="Next"
           >
             <ArrowRight className="w-5 h-5" />
@@ -250,19 +250,16 @@ function CarouselCard({
 
         {/* CTA */}
         {item.link && isCenter && (
-          <div className="flex items-center gap-3 mt-auto pt-4">
-            <a
-              href={item.link}
-              className="px-6 py-2 rounded-full border border-border-default hover:border-text-muted text-sm text-text-primary font-sans transition-all duration-200"
-            >
+          <div className="flex items-center mt-auto pt-4">
+            <span className="inline-flex items-center justify-center h-10 px-4 rounded-full border border-border-default bg-bg-secondary text-xs font-mono text-text-primary">
               {item.linkText || 'Read more'}
-            </a>
+            </span>
             <a
               href={item.link}
-              className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-border-default hover:border-text-muted transition-all duration-200"
+              className="-ml-3 inline-flex items-center justify-center w-10 h-10 rounded-full border border-border-default bg-bg-surface hover:bg-text-primary hover:text-bg-primary hover:border-text-primary transition-all duration-200 z-10"
               aria-label={`View ${item.title}`}
             >
-              <ArrowRight className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
         )}

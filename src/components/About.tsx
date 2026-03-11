@@ -96,7 +96,7 @@ export default function About() {
                 href="https://github.com/MarioAderman"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="-ml-3 inline-flex items-center justify-center w-10 h-10 rounded-full border border-border-default bg-bg-surface hover:border-text-muted transition-all duration-200 z-10"
+                className="-ml-3 inline-flex items-center justify-center w-10 h-10 rounded-full border border-border-default bg-bg-surface hover:bg-text-primary hover:text-bg-primary hover:border-text-primary transition-all duration-200 z-10"
                 aria-label={t.aria.viewGithub}
               >
                 <ArrowUpRight className="w-4 h-4" />

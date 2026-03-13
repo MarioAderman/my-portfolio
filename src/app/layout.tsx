@@ -34,11 +34,15 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover' as const,
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+    { media: '(prefers-color-scheme: light)', color: '#ebebeb' },
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`dark ${plexMono.variable} ${plexSans.variable}`}>
+    <html lang="en" className={`dark bg-bg-primary ${plexMono.variable} ${plexSans.variable}`}>
       <body className="relative bg-bg-primary text-text-primary noise-overlay transition-colors duration-300">
         {/* Decorative background circles — visible across all sections */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">

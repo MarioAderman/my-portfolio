@@ -83,6 +83,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-primary);
   -moz-osx-font-smoothing: grayscale;
 }
 

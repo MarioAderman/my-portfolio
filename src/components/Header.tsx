@@ -25,15 +25,8 @@ export default function Header() {
 
   return (
     <>
-      {/* Safe area cover for iPhone notch — always matches header background */}
-      <div
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 h-[env(safe-area-inset-top)] transition-all duration-300',
-          isScrolled || isMenuOpen
-            ? 'bg-bg-primary/90 backdrop-blur-xl'
-            : 'bg-bg-primary'
-        )}
-      />
+      {/* Safe area cover for iPhone notch — always solid, never semi-transparent */}
+      <div className="fixed top-0 left-0 right-0 z-50 h-[env(safe-area-inset-top)] bg-bg-primary" />
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-[env(safe-area-inset-top)]',

@@ -24,14 +24,24 @@ export default function Header() {
   ]
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-[env(safe-area-inset-top)]',
-        isScrolled || isMenuOpen
-          ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-border-subtle'
-          : 'bg-transparent'
-      )}
-    >
+    <>
+      {/* Safe area cover for iPhone notch — always matches header background */}
+      <div
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 h-[env(safe-area-inset-top)] transition-all duration-300',
+          isScrolled || isMenuOpen
+            ? 'bg-bg-primary/90 backdrop-blur-xl'
+            : 'bg-bg-primary'
+        )}
+      />
+      <header
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-[env(safe-area-inset-top)]',
+          isScrolled || isMenuOpen
+            ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-border-subtle'
+            : 'bg-transparent'
+        )}
+      >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex items-center justify-between h-16 md:grid md:grid-cols-3">
           {/* Left: Name */}
@@ -111,5 +121,6 @@ export default function Header() {
         </div>
       </div>
     </header>
+    </>
   )
 }

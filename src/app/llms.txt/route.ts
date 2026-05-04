@@ -60,20 +60,20 @@ This portfolio is AI-native. You can interact with it programmatically:
 
 ### MCP Server
 Connect your AI assistant (Claude Code, Cursor, VS Code, Claude Desktop) to query this portfolio:
-- URL: https://mcp.fintegra.solutions/mcp
-- CLI: claude mcp add mario-portfolio --transport http https://mcp.fintegra.solutions/mcp
+- URL: https://ai-portfolio-server-792q.onrender.com/mcp
+- CLI: claude mcp add mario-portfolio --transport http https://ai-portfolio-server-792q.onrender.com/mcp
 - JSON config:
   {
     "mcpServers": {
       "mario-portfolio": {
-        "url": "https://mcp.fintegra.solutions/mcp"
+        "url": "https://ai-portfolio-server-792q.onrender.com/mcp"
       }
     }
   }
 
 ### A2A (Agent-to-Agent) Protocol
-- Agent Card: https://agent.fintegra.solutions/.well-known/agent-card.json
-- Endpoint: https://agent.fintegra.solutions/
+- Agent Card: https://ai-portfolio-server-792q.onrender.com/.well-known/agent.json
+- Endpoint: https://ai-portfolio-server-792q.onrender.com/
 
 ## Site
 

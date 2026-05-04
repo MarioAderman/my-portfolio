@@ -15,12 +15,12 @@ const fadeUp = {
   }),
 }
 
-const A2A_URL = 'https://agent.fintegra.solutions/'
-const MCP_COMMAND = 'claude mcp add mario-portfolio --transport http https://mcp.fintegra.solutions/mcp'
+const A2A_URL = 'https://ai-portfolio-server-792q.onrender.com/'
+const MCP_COMMAND = 'claude mcp add mario-portfolio --transport http https://ai-portfolio-server-792q.onrender.com/mcp'
 const MCP_JSON = `{
   "mcpServers": {
     "mario-portfolio": {
-      "url": "https://mcp.fintegra.solutions/mcp"
+      "url": "https://ai-portfolio-server-792q.onrender.com/mcp"
     }
   }
 }`
@@ -175,9 +175,9 @@ export default function AskPortfolio() {
               <span className="text-xs font-mono text-text-muted">{t.ask.snippetLabels.a2a}</span>
               <div className="relative">
                 <pre className="text-xs font-mono text-text-secondary bg-bg-surface border border-border-default rounded-lg p-4 pr-10 overflow-x-auto">
-                  https://agent.fintegra.solutions/.well-known/agent-card.json
+                  https://ai-portfolio-server-792q.onrender.com/.well-known/agent.json
                 </pre>
-                <CopyButton text="https://agent.fintegra.solutions/.well-known/agent-card.json" />
+                <CopyButton text="https://ai-portfolio-server-792q.onrender.com/.well-known/agent.json" />
               </div>
             </div>
           </motion.div>

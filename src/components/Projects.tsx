@@ -41,7 +41,7 @@ const projectConfigs: ProjectConfig[] = [
     imageStyles: ['object-cover', 'object-cover', 'object-cover object-top'],
     tags: ['LangGraph', 'LangChain', 'PostgreSQL', 'Gradio', 'Python'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/MarioAderman/cashy-poc', type: 'github' },
+      { label: 'GitHub', href: 'https://github.com/MarioAderman/cashy', type: 'github' },
       { label: 'Live Demo', href: 'https://huggingface.co/spaces/SeasonalFall84/cashy', type: 'demo' },
       { label: 'Video Demo', href: 'https://youtu.be/Ln5vl8dd5aI', type: 'video' },
     ],
